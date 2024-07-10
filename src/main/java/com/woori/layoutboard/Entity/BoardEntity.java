@@ -13,6 +13,8 @@ import lombok.*;
 @Entity
 @Table(name = "board")
 public class BoardEntity extends BaseEntity {
+    //기본1부터 증가
+    //서버 새로 시작+50 새로 번호시작
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id")

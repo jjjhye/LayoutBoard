@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <th:block layout:fragment="script"></th:block>
+    <th:block layout:fragment="css"></th:block>
 </head>
 <body>
-
+<!--메뉴를 구성할 머리말 위치-->
+<!--폴더명/파일명::가져올 fragment이름-->
+<!--th:fragment 선언시 파일이 반드시 존재, 없으면 오류-->
+<div th:replace="~{fragments/header::header}"></div>
+<!--실질적으로 작업할 본문의 위치-->
+<!--layout(이동할 레이아웃):fragment=content=>레이아웃이 이동할 fragment이름-->
+<div th:layout:fragment="content"></div>
+<!--하단에 저작권 및 회사정보 위치-->
+<div th:replace="~{fragments/footer::footer}"></div>
 </body>
 </html>

@@ -10,7 +10,7 @@ import java.util.Map;
 public class PaginationUtil {
     //페이지처리 메소드
     public static Map<String,Integer> Pagination(Page<?>page){
-        Map<String,Integer> pageiInfo = new HashMap<>();
+        Map<String,Integer> pageInfo = new HashMap<>();
         //페이지 기본 정보, 변수명 사용자 마음대로, put고정
         int currentPage = page.getNumber()+1;
         int totalPages = page.getTotalPages();
@@ -23,11 +23,12 @@ public class PaginationUtil {
         int nextPage = Math.min(totalPages,currentPage+1);//2->3, currentpage+10 2->12
         int lastPage = totalPages;
 
-        pageiInfo.put("startPage", startPage);
-        pageiInfo.put("endPage", endPage);
-        pageiInfo.put("prevPage", prevPage);
-        pageiInfo.put("nextPage", nextPage);
-        pageiInfo.put("lastPage", lastPage);
-        return pageiInfo;
+        pageInfo.put("startPage", startPage);
+        pageInfo.put("endPage", endPage);
+        pageInfo.put("prevPage", prevPage);
+        pageInfo.put("nextPage", nextPage);
+        pageInfo.put("lastPage", lastPage);
+        pageInfo.put("currentPage", currentPage);
+        return pageInfo;
     }
 }
